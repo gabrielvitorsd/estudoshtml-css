@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mídias em HTML</title>
+</head>
+<body>
+    <h1>Imagem dinâmica</h1>
+    <p>Tente abrir esse site em vários dispositivos diferentes ou simplesmente aumente e diminue o tamanho do seu nevegador.</p>
+
+    <picture>
+        <!--Para adicionar a imagem pequena tem que ser acima das outras-->
+        <source media="(max-width: 750px)" srcset="imagens/foto-p.png" type="image/png">
+        <!--Colocou 700px porque é o tamanho máximo da imagem média juntamente com a soma da barra lateral max-widht = 700px + 050px-->
+
+        <source media="(max-width: 1050px)" srcset="imagens/foto-m.png" type="image/png"> 
+        <!--max-width é a largura máxima-->
+        <!--Colocou 1050px porque é o tamanho máximo da imagem grande juntamente com a soma da barra lateral max-widht = 1000px + 050px-->
+
+        <img src="imagens/foto-g.png" alt="Imagem flexível">
+        <!--Essa linha de código está dizendo que ele vai carregar a imagem grande mas se chegar a menos de 1050 pixels ele vai carregar a foto "m"-->
+
+        <!--ALERTA!!! CUIDADO COM AS SOURCES-->
+        <!--A ORDEM DAS SOURCES INFLUENCIA NO APARECIMENTO DAS IMAGENS-->
+
+
+    </picture>
+
+    <h1>Reproduzindo áudio</h1>
+    <p>Vamos aprender a reproduzir áudio em HTML5</p>
+    <!--<audio src="midia/guanacast-33.mp3" controls autoplay></audio> Primeira forma de adicionar áudio-->
+    <!--Formatos compatíveis no navegador: MP3 WAV OGG-->
+
+    <!--Outra forma de adicionar o áudio-->
+    <audio preload="metadata" autoplay controls loop>
+        <!--Os parâmetros de aúdio são:
+        preload: "auto" Ele só considera que o site termina de carregar quando termina de carregar o áudio, logo é um comando bastante perigoso, neste caso por exemplo o arquivo guanacast-33.mp3 apresenta 30,9 MB.
+        preload: "metadata" Só carrega informações de metadados do arquivo de áudio, logo é o ideal para aplicar.
+        preload: "none" Não carrega nada, carrega só quando o usuário aperta play nos controles.      
+    -->
+
+        
+        <!--Formatos compátiveis, caso o navegador não aceite nenhum deste você propôe para o usuário baixar o arquivo-->
+        <source src="midia/guanacast-33.mp3" type="audio/mpeg">
+        <source src="midia/guanacast-33.ogg" type="audio/ogg">
+        <source src="midia/guanacast-33.wav" type="audio/wav"> <!--São arquivos muitos pesados, não é recomendado o uso-->
+        <p>Infelizmente seu navegador não consegue reproduzir o áudio. <a href="midia/guanacast-33.mp3">Clique aqui para baixar o arquivo mp3</a></p>
+    </audio>
+</body>
+</html> 
